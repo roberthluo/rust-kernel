@@ -10,7 +10,8 @@ https://os.phil-opp.com/multiboot-kernel/
 
 
 installation instructions:
-dnf install nasm
+`dnf install nasm`
+`dnf install qemu`
 
 
 
