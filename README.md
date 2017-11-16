@@ -10,10 +10,11 @@ https://os.phil-opp.com/multiboot-kernel/
 
 
 installation instructions:
-`dnf install nasm`
-`dnf install qemu`
 
-
+```bash
+$ dnf install nasm
+$ dnf install qemu
+```
 
 
 When a computer is turned on, it loads some BIOS, and the control is transfered to a bootloader. There is a standard for a bootloader called the Multiboot Specification.
