@@ -1,4 +1,4 @@
-[root]
-name = "hello_world"
+[[package]]
+name = "rust_os"
 version = "0.0.1"
 
