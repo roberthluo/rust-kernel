@@ -9,7 +9,7 @@ SECTIONS {
     .boot :
     {
         /* ensure that multiboot header is at beginning*/
-        *(.multiboot_header)
+        KEEP(*(.multiboot_header))
     }
     /* contains all input section name .text */
     .text :

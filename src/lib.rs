@@ -6,7 +6,8 @@
 //prevents automatic linking of std because it relies on OS
 #![no_std]
 
-
+//used for libc function like memcpy, memove, memset etc
+extern crate rlibc;
 //Disables automatic name mangling
 //Want to call rust_main from assembly
 #[no_mangle]
