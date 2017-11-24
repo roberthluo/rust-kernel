@@ -15,7 +15,9 @@ installation instructions:
 $ dnf install nasm
 $ dnf install qemu
 ```
-
-
+Differences:
+```
+Using grub2-mkrescue
+```
 When a computer is turned on, it loads some BIOS, and the control is transfered to a bootloader. There is a standard for a bootloader called the Multiboot Specification.
 
