@@ -2,7 +2,7 @@
 
 name = "rust_os"
 version = "0.0.1"
-authors = [ "Robert <Robert.otherone@gmail.com>" ]
+authors = [ "Philipp Oppermann"]
 
 [lib]
 crate-type = ["staticlib"]
