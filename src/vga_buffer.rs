@@ -142,6 +142,9 @@ impl fmt::Write for Writer {
     }
 }
 
+/*
+ * Split because it causes deadlocking.
+ * We need to evaluate the arugments before locking the writer
 macro_rules! print {
     ($($arg:tt)*) => ({
         use core::fmt::Write;
@@ -149,7 +152,17 @@ macro_rules! print {
         writer.write_fmt(format_args!($($arg)*)).unwrap();
     });
 }
+*/
+macro_rules! print {
+    ($($arg:tt)*) => ({
+        $crate::vga_buffer::print(format_args!($($arg)*));
+    });
+}
 
+pub fn print(args: fmt::Arguments) {
+    use core::fmt::Write;
+    WRITER.lock().write_fmt(args).unwrap();
+}
 
 macro_rules! println {
     ($fmt:expr) => (print!(concat!($fmt, "\n")));

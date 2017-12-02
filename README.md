@@ -23,4 +23,4 @@ When a computer is turned on, it loads some BIOS, and the control is transfered 
 
 
 ## What does it do?
-It only prints ok from bootloader, in process of addition functionality to echo back input to OS.
+It prints to screen using the CGA text buffer.
