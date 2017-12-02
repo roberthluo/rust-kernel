@@ -1,4 +1,5 @@
 #![feature(const_fn)]
+#![feature(const_unique_new)]
 #![feature(unique)]
 //#! defines attribute of current module
 //attributes are metadata like lints, compiler features, links to foreign library
@@ -9,6 +10,9 @@
 
 //used for libc function like memcpy, memove, memset etc
 extern crate rlibc;
+extern crate spin;
+extern crate volatile;
+
 //Disables automatic name mangling
 //Want to call rust_main from assembly
 #[macro_use]
@@ -16,7 +20,11 @@ mod vga_buffer;
 #[no_mangle]
 pub extern fn rust_main() {
     // ATTENTION: we have a very small stack and no guard page
-
+    vga_buffer::clear_screen();
+    println!("Hello World{}", "!");
+    use core::fmt::Write;
+    vga_buffer::WRITER.lock().write_str("Hello again");
+    write!(vga_buffer::WRITER.lock(), ", some numbers: {} {}", 42, 1.337);
     let hello = b"Hello World!";
     let color_byte = 0x1f; // white foreground, blue background
 
@@ -26,8 +34,8 @@ pub extern fn rust_main() {
     }
 
     // write `Hello World!` to the center of the VGA text buffer
-    let buffer_ptr = (0xb8000 + 1988) as *mut _;
-    unsafe { *buffer_ptr = hello_colored };
+    //let buffer_ptr = (0xb8000 + 1988) as *mut _;
+    //unsafe { *buffer_ptr = hello_colored };
 
     loop{}
 }
