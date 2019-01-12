@@ -1,5 +1,5 @@
 # rust-kernel
-Learning how a kernel works
+Learning how a kernel works 32bit on x86 architecture
 
 Links:
 https://doc.rust-lang.org/book/first-edition
